@@ -1,58 +1,65 @@
 {
   "RSpec": {
     "coverage": {
-      "C:/Users/lukey/OneDrive - Technological University Dublin/Code/College Projects/Blood Pressure Container/app/controllers/blood_pressure_calculator_controller.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          7,
-          7,
-          7,
-          null,
-          7,
-          null,
-          5,
-          null,
-          null,
-          2,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          1,
-          7,
-          null,
-          null,
-          1,
-          5,
-          1,
-          4,
-          1,
-          3,
-          1,
-          null,
-          2,
-          null,
-          null,
-          null
-        ]
-      },
       "C:/Users/lukey/OneDrive - Technological University Dublin/Code/College Projects/Blood Pressure Container/app/controllers/application_controller.rb": {
         "lines": [
-          1,
           null,
-          null
-        ]
+          null,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "C:/Users/lukey/OneDrive - Technological University Dublin/Code/College Projects/Blood Pressure Container/app/controllers/blood_pressure_calculator_controller.rb": {
+        "lines": [
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
       }
     },
-    "timestamp": 1732474445
+    "timestamp": 1732565610
   }
 }
