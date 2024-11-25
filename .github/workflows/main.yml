@@ -56,7 +56,7 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y ruby-full build-essential chromium-driver
           ruby --version
-          gem install bundler
+          sudo gem install bundler
           bundler --version
           bundle install --without production
           export SELENIUM_URL=http://localhost:4444/wd/hub
