@@ -6,6 +6,9 @@ RUN apt-get update -qq && apt-get install -y \
   yarn \
   build-essential \
   libpq-dev \
+  libnss3 \
+  libgconf-2-4 \
+  chromium-driver \
   && rm -rf /var/lib/apt/lists/*
 
 # Set the working directory in the container
@@ -13,7 +16,7 @@ WORKDIR /app
 
 # Install Bundler and Rails dependencies
 COPY Gemfile Gemfile.lock ./
-RUN bundle install --without development test
+RUN bundle install
 
 # Copy the rest of the application code
 COPY . ./
