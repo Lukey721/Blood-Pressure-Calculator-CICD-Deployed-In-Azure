@@ -51,24 +51,23 @@ jobs:
       run: |
         docker run -d --name selenium -p 4444:4444 selenium/standalone-chrome:latest
 
-    # Install test dependencies for selenium
-    - name: Install test dependencies
-      run: |
-        sudo apt-get update -qq
-        sudo apt-get install -y chromium-driver
-        bundle install bundler
-        bundle install --without production
-        export SELENIUM_URL=http://localhost:4444/wd/hub
-
-    # Run the Selenium tests
+        - name: Install Ruby, Bundler, and Dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ruby-full build-essential chromium-driver
+          ruby --version
+          gem install bundler
+          bundler --version
+          bundle install --without production
+          export SELENIUM_URL=http://localhost:4444/wd/hub
+  
     - name: Run E2E Tests
       run: |
-        export BASE_URL=https://bloodpressurecicd.azurewebsites.net/
-        bundle exec rspec --format RspecJunitFormatter --out test-results/rspec.xml
-
-    # Publish the Test Results
+          export BASE_URL=https://bloodpressurecicd.azurewebsites.net/
+          bundle exec rspec --format RspecJunitFormatter --out test-results/rspec.xml
+  
     - name: Publish Test Results
       uses: actions/upload-artifact@v3
       with:
-        name: rspec-results
-        path: test-results/rspec.xml
+         name: rspec-results
+         path: test-results/rspec.xml
