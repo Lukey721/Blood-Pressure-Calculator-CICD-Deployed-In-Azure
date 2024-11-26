@@ -23,7 +23,7 @@ RSpec.feature "HomePage", type: :feature do
     visit ENV.fetch('BASE_URL', 'http://localhost:3000')
 
     # Check if the page displays the heading
-    expect(page).to have_content("Blood Pressure Calculator")
+    expect(page).to have_content("Blood Pressure Calculator-v1.1")
 
     # Check if the form elements are present
     expect(page).to have_selector("form[action='#{root_path}'][method='post']")
