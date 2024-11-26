@@ -40,6 +40,9 @@ jobs:
   run-tests:
     needs: build-and-deploy
     runs-on: ubuntu-latest
+    env:
+     BASE_URL: https://bloodpressurecicd.azurewebsites.net/
+     SELENIUM_URL: http://localhost:4444/wd/hub
 
     steps:
     # Checkout the code again for the test job
