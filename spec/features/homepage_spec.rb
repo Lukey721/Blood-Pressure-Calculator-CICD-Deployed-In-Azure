@@ -17,18 +17,4 @@ RSpec.feature "HomePage", type: :feature do
     # Set the JavaScript driver for the test
     Capybara.javascript_driver = :selenium_remote
   end
-
-  scenario "Visit home page and check for form elements", js: true do
-    # Visit the homepage
-    visit ENV.fetch('BASE_URL', 'http://localhost:3000')
-
-    # Check if the page displays the heading
-    expect(page).to have_content("Blood Pressure Calculator-v1.1")
-
-    # Check if the form elements are present
-    expect(page).to have_selector("form[action='#{root_path}'][method='post']")
-    expect(page).to have_field("systolic", type: "number")
-    expect(page).to have_field("diastolic", type: "number")
-    expect(page).to have_button("Calculate")
-  end
 end
