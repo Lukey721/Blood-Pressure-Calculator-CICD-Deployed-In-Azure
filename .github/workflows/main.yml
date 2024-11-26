@@ -40,9 +40,6 @@ jobs:
   run-tests:
     needs: build-and-deploy
     runs-on: ubuntu-latest
-    env:
-     BASE_URL: https://bloodpressurecicd.azurewebsites.net/
-     SELENIUM_URL: http://localhost:4444/wd/hub
 
     steps:
     # Checkout the code again for the test job
@@ -59,17 +56,6 @@ jobs:
     - name: Start Selenium Standalone Chrome
       run: |
         docker run -d --name selenium -p 4444:4444 selenium/standalone-chrome:latest
-    
-    #lOGS FOR DOCKER CONTAINER
-    - name: Check Selenium Container Logs
-      run: |
-          docker logs selenium
-    #VERIFY URL 
-    - name: Test Application URL
-      run: curl -I $BASE_URL
-    #DEBUG SELENIUM URL 
-    - name: Debug SELENIUM_URL
-      run: echo $SELENIUM_URL
 
     - name: Install Ruby, Bundler, and Dependencies
       run: |
