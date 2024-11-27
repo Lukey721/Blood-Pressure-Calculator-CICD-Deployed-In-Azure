@@ -45,6 +45,8 @@ gem 'tzinfo-data'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
+gem 'rspec_junit_formatter'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -58,6 +60,7 @@ group :development, :test do
   gem 'rubocop-performance', '~> 1.23'
   gem 'rubocop-rake', require: false
   gem 'rubocop-rspec', require: false
+  gem 'secure_headers'
 end
 
 group :development do
@@ -82,6 +85,5 @@ group :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner-active_record'
   gem 'panolint'
-  gem 'rspec_junit_formatter'
   gem 'webdrivers'
 end

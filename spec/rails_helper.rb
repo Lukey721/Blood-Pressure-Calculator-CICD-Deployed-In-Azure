@@ -31,6 +31,19 @@ Capybara.default_max_wait_time = 5 # Adjust based on your app's responsiveness
 Capybara.default_driver = :rack_test # Use a fast driver for non-JS tests
 Capybara.javascript_driver = :selenium_remote # Use Selenium for JS tests
 
+Capybara.register_driver :selenium_remote do |app|
+  chrome_options = Selenium::WebDriver::Options::Chrome.new
+  chrome_options.args << '--headless'
+  chrome_options.args << '--disable-gpu'
+  chrome_options.args << '--no-sandbox'
+
+  Capybara::Selenium::Driver.new(
+    app,
+    browser: :remote,
+    url: ENV.fetch('SELENIUM_URL', 'http://localhost:4444/wd/hub'),
+    capabilities: chrome_options
+  )
+end
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end

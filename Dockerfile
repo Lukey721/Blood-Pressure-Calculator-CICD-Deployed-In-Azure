@@ -6,8 +6,14 @@ RUN apt-get update -qq && apt-get install -y \
   yarn \
   build-essential \
   libpq-dev \
+<<<<<<< HEAD
+  libnss3 \
+  libgconf-2-4 \
+  chromium-driver \
+=======
   chromium-driver \
   libnss3 libgconf-2-4\
+>>>>>>> development
   && rm -rf /var/lib/apt/lists/*
 
 # Set the working directory in the container

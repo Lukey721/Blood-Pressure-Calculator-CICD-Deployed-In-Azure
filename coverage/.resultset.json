@@ -14,6 +14,37 @@
           null,
           1,
           null,
+<<<<<<< HEAD
+          7,
+          null,
+          7,
+          7,
+          null,
+          7,
+          null,
+          5,
+          null,
+          null,
+          2,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          7,
+          null,
+          null,
+          1,
+          5,
+          1,
+          4,
+          1,
+          3,
+          1,
+          null,
+=======
+>>>>>>> development
           2,
           null,
           0,
@@ -60,64 +91,10 @@
         ]
       }
     },
-    "timestamp": 1732656657
+<<<<<<< HEAD
+    "timestamp": 1732628491
 =======
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "C:/Users/lukey/OneDrive - Technological University Dublin/Code/College Projects/Blood Pressure Container/app/controllers/blood_pressure_calculator_controller.rb": {
-        "lines": [
-          null,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      }
-    },
-    "timestamp": 1732565610
->>>>>>> 6580888 (changes to add selenium)
+    "timestamp": 1732656657
+>>>>>>> development
   }
 }

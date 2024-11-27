@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - development 
+      - testing
+      
 
 jobs:
   build-and-deploy:
@@ -32,3 +34,46 @@ jobs:
       with:
         app-name: ${{ secrets.AZURE_APP_NAME }}  # this is now updated
         images: ${{ secrets.REGISTRY_USERNAME }}.azurecr.io/blood-pressure-app:latest  # Docker image location in  registry
+
+
+    # Run the Selenium E2E Tests
+  run-tests:
+    needs: build-and-deploy
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checkout the code again for the test job
+    - name: Checkout code
+      uses: actions/checkout@v3 
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.2.2
+        bundler-cache: true
+
+    # Set up a standalone Chrome container for Selenium to test in
+    - name: Start Selenium Standalone Chrome
+      run: |
+        docker run -d --name selenium -p 4444:4444 selenium/standalone-chrome:latest
+
+    - name: Install Ruby, Bundler, and Dependencies
+      run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ruby-full build-essential chromium-driver
+          ruby --version
+          sudo gem install bundler -v 2.4.10
+          bundler --version
+          bundle _2.4.10_ install --without production
+          export SELENIUM_URL=http://localhost:4444/wd/hub
+  
+    - name: Run E2E Tests
+      run: |
+          export BASE_URL=https://bloodpressurecicd.azurewebsites.net/
+          bundle exec rspec --format RspecJunitFormatter --out test-results/rspec.xml
+  
+    - name: Publish Test Results
+      uses: actions/upload-artifact@v3
+      with:
+         name: rspec-results
+         path: test-results/rspec.xml
