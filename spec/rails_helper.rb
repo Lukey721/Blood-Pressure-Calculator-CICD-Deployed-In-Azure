@@ -25,6 +25,11 @@ end
 require 'rails-controller-testing'
 Rails::Controller::Testing.install
 
+require 'capybara/rspec'
+# Configure Capybara's default behavior
+Capybara.default_max_wait_time = 5 # Adjust based on your app's responsiveness
+Capybara.default_driver = :rack_test # Use a fast driver for non-JS tests
+Capybara.javascript_driver = :selenium_remote # Use Selenium for JS tests
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are

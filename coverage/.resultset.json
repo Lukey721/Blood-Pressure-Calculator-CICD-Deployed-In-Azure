@@ -1,6 +1,7 @@
 {
   "RSpec": {
     "coverage": {
+<<<<<<< HEAD
       "C:/Users/lukey/OneDrive - Technological University Dublin/Code/College Projects/Blood Pressure Container/app/controllers/blood_pressure_calculator_controller.rb": {
         "lines": [
           null,
@@ -47,15 +48,76 @@
           null
         ]
       },
+=======
+>>>>>>> 6580888 (changes to add selenium)
       "C:/Users/lukey/OneDrive - Technological University Dublin/Code/College Projects/Blood Pressure Container/app/controllers/application_controller.rb": {
         "lines": [
           null,
           null,
+<<<<<<< HEAD
           1,
           null
         ]
       }
     },
     "timestamp": 1732656657
+=======
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "C:/Users/lukey/OneDrive - Technological University Dublin/Code/College Projects/Blood Pressure Container/app/controllers/blood_pressure_calculator_controller.rb": {
+        "lines": [
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      }
+    },
+    "timestamp": 1732565610
+>>>>>>> 6580888 (changes to add selenium)
   }
 }
