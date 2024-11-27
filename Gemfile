@@ -60,6 +60,7 @@ group :development, :test do
   gem 'rubocop-performance', '~> 1.23'
   gem 'rubocop-rake', require: false
   gem 'rubocop-rspec', require: false
+  gem 'secure_headers'
 end
 
 group :development do
@@ -84,6 +85,5 @@ group :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner-active_record'
   gem 'panolint'
-  gem 'rspec_junit_formatter'
   gem 'webdrivers'
 end
