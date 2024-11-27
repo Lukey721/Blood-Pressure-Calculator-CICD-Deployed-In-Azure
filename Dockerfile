@@ -17,7 +17,7 @@ WORKDIR /app
 COPY Gemfile Gemfile.lock ./
 RUN bundle install
 
-# Copy the rest of the application code
+# Copy the rest of the applications code
 COPY . ./
 
 # Set environment variables (adjust RAILS_MASTER_KEY if necessary)
