@@ -72,6 +72,22 @@ RSpec.configure do |config|
     Rails.root.join('spec/fixtures')
   ]
 
+require 'capybara/rspec'
+
+# Configure Capybara to use Selenium with Chrome
+Capybara.register_driver :selenium do |app|
+  Capybara::Selenium::Driver.new(
+    app,
+    browser: :chrome,
+    capabilities: Selenium::WebDriver::Remote::Capabilities.chrome(
+      "goog:chromeOptions" => { args: %w[headless disable-gpu no-sandbox] }
+    )
+  )
+end
+
+Capybara.javascript_driver = :selenium
+Capybara.default_max_wait_time = 5
+
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.

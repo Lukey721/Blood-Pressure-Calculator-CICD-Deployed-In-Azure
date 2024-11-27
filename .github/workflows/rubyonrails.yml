@@ -58,3 +58,48 @@ jobs:
 
     - name: Run Dependency Vulnerability Scanning
       run: bundle exec bundler-audit check --update
+
+    - name: Run E2E tests
+      env:
+        RAILS_ENV: test
+      run: |
+        bundle exec rspec spec/features/homepage_spec.rb --format RspecJunitFormatter --out test-results/e2etests.xml
+        mkdir -p test-results
+
+    - name: Publish Test Results
+      uses: actions/upload-artifact@v4
+      with:
+        name: Capybara E2E Tests
+        path: test-results/e2etests.xml
+
+    - name: Pull Docker image for K6
+      run: docker pull grafana/k6
+  
+    - name: Run K6 Load Test
+      run: |
+        docker run -i --rm \
+          -v ${{ github.workspace }}/K6tests:/tests \
+          grafana/k6 run /tests/perf_test2.js > k6report.txt
+  
+    - name: Upload K6 Report
+      uses: actions/upload-artifact@v4
+      with:
+        name: k6report
+        path: k6report.txt
+
+    # Pull the ZAP Docker image
+    - name: Pull Docker image for ZAP
+      run: docker pull zaproxy/zap-weekly
+
+    # Run ZAP baseline scan
+    - name: Run baseline scan
+      run: docker run -v /report:/zap/wrk/:rw --user root -t zaproxy/zap-weekly zap-baseline.py -t "https://bloodpressurecicd.azurewebsites.net/" -I -r zapreport.html
+       
+    # Upload ZAP report as an artifact
+    - uses: actions/upload-artifact@v4
+      name: Upload ZAP report
+      with:
+       name: ZAPreport
+       path: /report/zapreport.html
+
+
